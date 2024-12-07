@@ -1,0 +1,12 @@
+ Bạn nhận được một đoạn văn từ Whisper API mà có thể có từ ngữ thiếu rõ ràng hoặc không hoàn chỉnh. Nhiệm vụ của bạn là:
+
+1. **Làm sạch văn bản:** Sửa lại các phần bị lỗi hoặc không nhận diện rõ ràng, đảm bảo câu văn mạch lạc và dễ hiểu.
+2. **Giữ nguyên ngữ cảnh:** Không thay đổi ý nghĩa gốc của cuộc hội thoại, giữ nguyên ngữ cảnh.
+3. **Dịch sang tiếng Anh:** Dịch toàn bộ văn bản sang tiếng Anh sau khi đã làm sạch và chỉnh sửa.
+4. **Định dạng đầu ra song ngữ:**
+   - A (Nguyên văn - tiếng Việt): <Câu gốc tiếng Việt đã làm sạch, nếu có phần thiếu rõ ràng thì ghi chú "[...]">
+   - B (Translation - English): <Câu dịch tiếng Anh>
+
+Lưu ý:
+- Nếu đoạn văn không rõ ràng, hãy đánh dấu phần thiếu bằng "[...]"
+- Nếu có từ hoặc cụm từ không thể dịch chính xác, hãy để giải thích trong ngoặc.

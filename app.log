@@ -1,0 +1,47 @@
+2024-11-29 15:47:22,989 INFO werkzeug MainThread : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-29 15:47:22,990 INFO werkzeug MainThread : [33mPress CTRL+C to quit[0m
+2024-11-29 15:47:22,991 INFO werkzeug MainThread :  * Restarting with stat
+2024-11-29 15:47:24,467 WARNING werkzeug MainThread :  * Debugger is active!
+2024-11-29 15:47:24,469 INFO werkzeug MainThread :  * Debugger PIN: 140-403-842
+2024-11-29 15:47:26,730 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [29/Nov/2024 15:47:26] "[33mGET / HTTP/1.1[0m" 404 -
+2024-11-29 15:47:51,736 INFO werkzeug Thread-3 (process_request_thread) : 127.0.0.1 - - [29/Nov/2024 15:47:51] "[33mGET / HTTP/1.1[0m" 404 -
+2024-11-29 15:48:27,045 INFO werkzeug MainThread :  * Detected change in 'C:\\cong viec\\Beme\\python beme\\app.py', reloading
+2024-11-29 15:48:27,219 INFO werkzeug MainThread :  * Restarting with stat
+2024-11-29 15:48:29,167 INFO root MainThread : \u1ee8ng d\u1ee5ng \u0111ang ch\u1ea1y t\u1ea1i: http://127.0.0.1:5000
+2024-11-29 15:48:29,196 WARNING werkzeug MainThread :  * Debugger is active!
+2024-11-29 15:48:29,199 INFO werkzeug MainThread :  * Debugger PIN: 140-403-842
+2024-11-29 15:48:30,230 INFO werkzeug MainThread :  * Detected change in 'C:\\cong viec\\Beme\\python beme\\app.py', reloading
+2024-11-29 15:48:30,400 INFO werkzeug MainThread :  * Restarting with stat
+2024-11-29 15:48:32,008 INFO root MainThread : \u1ee8ng d\u1ee5ng \u0111ang ch\u1ea1y t\u1ea1i: http://127.0.0.1:5000
+2024-11-29 15:48:32,035 WARNING werkzeug MainThread :  * Debugger is active!
+2024-11-29 15:48:32,038 INFO werkzeug MainThread :  * Debugger PIN: 140-403-842
+2024-11-29 15:48:34,312 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [29/Nov/2024 15:48:34] "[33mGET / HTTP/1.1[0m" 404 -
+2024-11-29 15:48:35,445 INFO werkzeug Thread-3 (process_request_thread) : 127.0.0.1 - - [29/Nov/2024 15:48:35] "[33mGET / HTTP/1.1[0m" 404 -
+2024-11-29 15:48:37,294 INFO werkzeug Thread-4 (process_request_thread) : 127.0.0.1 - - [29/Nov/2024 15:48:37] "[33mGET / HTTP/1.1[0m" 404 -
+2024-11-29 15:48:42,698 INFO werkzeug Thread-5 (process_request_thread) : 127.0.0.1 - - [29/Nov/2024 15:48:42] "[33mGET / HTTP/1.1[0m" 404 -
+2024-11-29 15:49:49,833 INFO werkzeug Thread-7 (process_request_thread) : 127.0.0.1 - - [29/Nov/2024 15:49:49] "[33mGET / HTTP/1.1[0m" 404 -
+2024-11-29 15:50:01,801 INFO root MainThread : \u1ee8ng d\u1ee5ng \u0111ang ch\u1ea1y t\u1ea1i: http://127.0.0.1:5000
+2024-11-29 15:50:01,850 INFO werkzeug MainThread : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-29 15:50:01,851 INFO werkzeug MainThread : [33mPress CTRL+C to quit[0m
+2024-11-29 15:50:01,852 INFO werkzeug MainThread :  * Restarting with stat
+2024-11-29 15:50:03,325 INFO root MainThread : \u1ee8ng d\u1ee5ng \u0111ang ch\u1ea1y t\u1ea1i: http://127.0.0.1:5000
+2024-11-29 15:50:03,352 WARNING werkzeug MainThread :  * Debugger is active!
+2024-11-29 15:50:03,357 INFO werkzeug MainThread :  * Debugger PIN: 140-403-842
+2024-11-29 15:50:06,018 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [29/Nov/2024 15:50:06] "[33mGET / HTTP/1.1[0m" 404 -
+2024-11-29 15:50:34,687 INFO werkzeug Thread-3 (process_request_thread) : 127.0.0.1 - - [29/Nov/2024 15:50:34] "[33mGET / HTTP/1.1[0m" 404 -
+2024-11-29 15:50:50,361 INFO werkzeug Thread-4 (process_request_thread) : 127.0.0.1 - - [29/Nov/2024 15:50:50] "[33mGET / HTTP/1.1[0m" 404 -
+2024-11-29 15:51:47,308 INFO werkzeug MainThread :  * Detected change in 'C:\\cong viec\\Beme\\python beme\\app.py', reloading
+2024-11-29 15:51:47,520 INFO werkzeug MainThread :  * Restarting with stat
+2024-11-29 15:56:43,556 INFO werkzeug MainThread :  * Restarting with stat
+2024-11-29 16:05:00,904 INFO werkzeug MainThread :  * Restarting with stat
+2024-11-29 16:05:18,138 INFO werkzeug MainThread :  * Restarting with stat
+2024-11-29 16:07:13,061 INFO werkzeug MainThread :  * Restarting with stat
+2024-11-29 16:09:44,859 INFO werkzeug MainThread :  * Restarting with stat
+2024-11-29 16:10:16,770 INFO werkzeug MainThread :  * Restarting with stat
+2024-11-29 16:10:53,400 INFO werkzeug MainThread :  * Restarting with stat
+2024-11-29 16:19:49,116 INFO werkzeug MainThread :  * Restarting with stat
+2024-11-29 16:20:19,424 INFO werkzeug MainThread :  * Restarting with stat
+2024-11-29 16:21:07,976 INFO werkzeug MainThread :  * Restarting with stat
+2024-11-29 16:40:51,334 INFO werkzeug MainThread :  * Restarting with stat

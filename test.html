@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BEME ENGLISH CLASS</title>
+    <!-- Liên kết đến tệp CSS trong thư mục static -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+   <style>
+      
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f9;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 500px;
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #cc6a2a; /* Màu chủ đạo */
+    font-size: 2em;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 1em;
+    color: #333; /* Màu chữ dễ đọc */
+}
+
+input[type="file"], 
+input[type="email"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1em;
+    transition: border-color 0.3s ease;
+}
+
+input[type="file"]:focus, 
+input[type="email"]:focus {
+    border-color: #cc6a2a; /* Màu chủ đạo khi focus */
+    outline: none;
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    background-color: #db7928; /* Màu chủ đạo */
+    color: white;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #a85e1a; /* Màu chủ đạo đậm hơn khi hover */
+}
+
+.feedback {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 6px;
+    display: none;
+    font-size: 1em;
+}
+
+.progress {
+    background: #e7f1ff;
+    color: #0056b3;
+}
+
+.result {
+    background: #e9ffe7;
+    color: #155724;
+}
+
+.error {
+    background: #ffe7e7;
+    color: #721c24;
+}
+
+/* Button color update */
+.btn-upload {
+    background-color: #cc6a2a; /* Màu chủ đạo */
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    button {
+        padding: 12px;
+        font-size: 1em;
+    }
+}
+   </style>
+    <div class="container">
+        <h1>BEME ENGLISH CLASS</h1>
+        <form id="upload-form" enctype="multipart/form-data">
+            <label for="audio">Chọn file âm thanh hoặc video:</label>
+            <input type="file" name="audio" id="audio" accept="audio/*,video/*" required>
+            
+            <label for="email">Nhập email để nhận kết quả:</label>
+            <input type="email" name="email" id="email" placeholder="example@domain.com" required>
+            
+            <button type="submit" class="btn-upload">Tải Lên và Xử Lý</button>
+        </form>
+        
+        <div class="feedback progress" id="progress">Đang xử lý, vui lòng chờ...</div>
+        <div class="feedback result" id="result"></div>
+        <div class="feedback error" id="error"></div>
+    </div>
+
+    <!-- Liên kết đến tệp JavaScript trong thư mục static -->
+    <script>
+       document.getElementById('upload-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const progressDiv = document.getElementById('progress');
+            const resultDiv = document.getElementById('result');
+            const errorDiv = document.getElementById('error');
+
+            progressDiv.style.display = 'block';
+            resultDiv.style.display = 'none';
+            errorDiv.style.display = 'none';
+
+            try {
+                const response = await fetch('/upload', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const data = await response.json();
+                if (response.ok) {
+                    progressDiv.style.display = 'none';
+                    resultDiv.style.display = 'block';
+                    resultDiv.innerHTML = `<p>${data.message}</p>`;
+                } else {
+                    progressDiv.style.display = 'none';
+                    errorDiv.style.display = 'block';
+                    errorDiv.textContent = data.error;
+                }
+            } catch (error) {
+                progressDiv.style.display = 'none';
+                errorDiv.style.display = 'block';
+                errorDiv.textContent = `Lỗi kết nối: ${error.message}`;
+            }
+        });
+    </script>
+</body>
+</html>

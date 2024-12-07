@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chuyển Đổi Giọng Nói Thành Văn Bản và Dịch Song Ngữ</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #444;
+        }
+        label {
+            display: block;
+            margin: 15px 0 5px;
+            font-weight: bold;
+        }
+        input[type="file"], input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .progress, .result, .error {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 4px;
+            display: none;
+        }
+        .progress {
+            background: #e7f1ff;
+            color: #0056b3;
+        }
+        .result {
+            background: #e9ffe7;
+            color: #155724;
+        }
+        .error {
+            background: #ffe7e7;
+            color: #721c24;
+        }
+        .download-link {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 15px;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+        .download-link:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Chuyển Đổi Giọng Nói Thành Văn Bản</h1>
+        <form id="upload-form" enctype="multipart/form-data">
+            <label for="audio">Chọn file âm thanh hoặc video:</label>
+            <input type="file" name="audio" id="audio" accept="audio/*,video/*" required>
+            
+            <label for="email">Nhập email để nhận kết quả:</label>
+            <input type="email" name="email" id="email" placeholder="example@domain.com" required>
+            
+            <button type="submit">Tải Lên và Xử Lý</button>
+        </form>
+        
+        <div class="progress" id="progress">Đang xử lý, vui lòng chờ...</div>
+        <div class="result" id="result"></div>
+        <div class="error" id="error"></div>
+    </div>
+
+    <script>
+        document.getElementById('upload-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const progressDiv = document.getElementById('progress');
+            const resultDiv = document.getElementById('result');
+            const errorDiv = document.getElementById('error');
+
+            progressDiv.style.display = 'block';
+            resultDiv.style.display = 'none';
+            errorDiv.style.display = 'none';
+
+            try {
+                const response = await fetch('/upload', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const data = await response.json();
+                if (response.ok) {
+                    progressDiv.style.display = 'none';
+                    resultDiv.style.display = 'block';
+                    resultDiv.innerHTML = `
+                        <p>${data.message}</p>
+                        <p><strong>Bản dịch:</strong> ${data.bilingual_text}</p>
+                        <a class="download-link" href="/uploads/${formData.get('audio').name}_result.docx" download>
+                            Tải file Word kết quả
+                        </a>
+                    `;
+                } else {
+                    progressDiv.style.display = 'none';
+                    errorDiv.style.display = 'block';
+                    errorDiv.textContent = data.error;
+                }
+            } catch (error) {
+                progressDiv.style.display = 'none';
+                errorDiv.style.display = 'block';
+                errorDiv.textContent = `Lỗi kết nối: ${error.message}`;
+            }
+        });
+    </script>
+</body>
+</html>
